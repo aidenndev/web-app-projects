@@ -49,3 +49,31 @@ header {
     border-radius: 12rem 12rem 0 0;
     overflow: hidden;
 }
+
+/* ==================== Scroll Down ==================== */
+.scroll_down {
+    position: absolute;
+    right: -2.5rem;
+    bottom: 5rem;
+    transform: rotate(90deg);
+    font-weight: 300;
+    font-size:  0.9rem;
+}
+
+/* ==================== MEDIA (Medium Devices - Tablets) ==================== */
+@media screen and (max-width: 1024px) {
+    header {
+        height: 80vh;
+    }
+}
+
+/* ==================== MEDIA (Small Devices - Phones) ==================== */
+@media screen and (max-width: 600px) {
+    header {
+        height: 100vh;
+    }
+
+    .header_socials, .scroll_down {
+        display: none;
+    }
+}
