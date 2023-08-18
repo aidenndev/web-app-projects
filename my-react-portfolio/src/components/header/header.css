@@ -1,6 +1,6 @@
 header {
     height: 100vh;
-    padding-top: 6.5rem;
+    padding-top: 3.5rem;
     overflow: hidden;
 }
 
@@ -40,14 +40,14 @@ header {
 /* ==================== Profile Pic ==================== */
 .me {
     background: linear-gradient(var(--color-primary), transparent);
-    width: 20rem;
-    height: 33rem;
+    width: 22rem;
+    height: 30rem;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(50% - 11rem);
     margin-top: 4rem;
     border-radius: 12rem 12rem 0 0;
     overflow: hidden;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
 }
 
 /* ==================== Scroll Down ==================== */
@@ -63,7 +63,7 @@ header {
 /* ==================== MEDIA (Medium Devices - Tablets) ==================== */
 @media screen and (max-width: 1024px) {
     header {
-        height: 80vh;
+        height: 60vh;
     }
 }
 
