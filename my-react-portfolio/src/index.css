@@ -38,7 +38,7 @@ body {
     background: var(--color-bg);
     color: var(--color-white);
     line-height: 1.7;
-    background-image: url(../src/assets/bg-texture-blue-tiny.png);
+    background-image: url(../src/assets/dark-blue-pattern-bg.jpg);
 }
 
 /* ==================== DEFAULT ==================== */
@@ -56,6 +56,7 @@ h1 {
 }
 
 section {
+    height: 100vh;
     margin-top: 8rem;
 }
 
