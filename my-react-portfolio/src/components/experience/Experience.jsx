@@ -61,6 +61,7 @@ const Experience = () => {
             </article>
           </div>
         </div>
+        {/*END OF PROGRAMMING*/}
 
         <div className="experience_development">
           <h3>Development</h3>
@@ -114,6 +115,7 @@ const Experience = () => {
             </article>
           </div>
         </div>
+        {/*END OF DEVELOPMENT*/}
 
         <div className="experience_database">
           <h3>Database</h3>
@@ -143,6 +145,7 @@ const Experience = () => {
             </article>
           </div>
         </div>
+        {/*END OF DATABASE*/}
 
         <div className="experience_cloud">
           <h3>Cloud platforms</h3>
@@ -172,6 +175,8 @@ const Experience = () => {
             </article>
           </div>
         </div>
+        {/*END OF CLOUD FLATFORMS*/}
+
       </div>
     </section>
   )
