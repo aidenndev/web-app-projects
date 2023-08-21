@@ -1,0 +1,24 @@
+<div class="user">
+<h1>Account Details</h1>
+<p>Email: <%= @user.email %></p>
+<p>First name: <%= current_user.first_name %></p>
+<p>Last name: <%= current_user.last_name %></p>
+<p>Account type: 
+	<% if current_user.admin %>
+		Admin
+	<% else %>
+		Member
+	<% end %>
+
+<p>Started from: <%= current_user.created_at %></p>
+<p>Last updated from: <%= current_user.updated_at %></p>
+
+<p>Total transformations: <%= current_user.transformations.size %></p>
+
+<p><%= link_to 'View transformation history', transformations_path, class: "btn btn-primary btn-md" %></p>
+<p></p>
+
+<p><%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-default btn-md" %></p>
+
+<p><%= link_to 'Back', home_path, class: "btn btn-default btn-md" %></p>
+</div>

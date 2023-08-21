@@ -1,0 +1,13 @@
+<!-- OLD CODE
+<% if current_user %>
+	<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+	<%= link_to 'Transformations', transformations_path %>
+	<%= link_to 'My Account', current_user %>
+		<% if current_user.admin %>
+			<%= link_to 'All users', users_path %>
+		<% end %>
+<% else %>
+	<%= link_to 'Sign up', new_user_registration_path %>
+	<%= link_to 'Sign in', new_user_session_path %>
+<% end %>
+-->

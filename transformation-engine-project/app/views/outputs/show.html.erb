@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Output name:</strong>
+  <%= @output.output_name %>
+</p>
+
+<p>
+  <strong>Output type:</strong>
+  <%= @output.output_type %>
+</p>
+
+<p>
+  <strong>Transformation:</strong>
+  <%= @output.transformation %>
+</p>
+
+<%= link_to 'Edit', edit_output_path(@output) %> |
+<%= link_to 'Back', outputs_path %>

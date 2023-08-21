@@ -1,0 +1,7 @@
+id,person-id,name,number,street,city,title,date-of-birth,kind,postcode,state,country
+1,1234567890,"Selway, Matt",10,At Home Cr,Adelaide,Dr,31/01/2018,billing,5000,SA,Australia
+2,1234567890,"Selway, Matt",1-100,University Blvd,Dr,31/01/2018,mailing,Mawson Lakes,5095,SA,Australia
+3,2345678901,"Grossmann, Georg",1-100,University Blvd,Mawson Lakes,Dr,31/01/2018,mailing,5095,SA,Australia
+4,3456789012,"Stumptner, Markus",1-100,University Blvd,Mawson Lakes,Professor,31/01/2018,mailing,5095,SA,Australia
+5,5678901234,"Bloggs, Joe",,Edinburgh,Mr,31/01/2018,mailing,PO BOX 1500,5111,SA,Australia
+6,6789012345,"Doe, Jane",,Edinburgh,Mr,31/01/2018,billing,PO BOX 1500,5111,SA,Australia

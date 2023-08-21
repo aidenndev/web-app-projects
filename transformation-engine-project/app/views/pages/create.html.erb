@@ -1,0 +1,507 @@
+ <div class="create">
+    <div class="col-md-8">
+        <h1 style="color: #169cc4">Create Transform File</h1>
+    </div>
+</div>
+<button id="addRow" type="button" class="glyphicon">+</button>
+<button id="removeRow" type="button" class="glyphicon">-</button>
+
+<table id="jsonTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th id="newColumnName">New Column Name</th>
+            <th id="operator">Operator</th>
+            <th id="columnsInvolved">Columns Involved</th>
+            <th id="attr1">Attribute #1</th>
+            <th id="attr2">Attribute #2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr></tr>
+    </tbody>
+</table>
+
+<div class="form-group">
+    <button id="jsonButton" type="button" class="btn btn-primary">Create Transformation File</button>
+</div>
+<div class="form-group">
+    <div id="jsonSuccessAlert" class="alert alert-success" role="alert" hidden>
+        Your JSON file has been successfully created. <a id="jsonDownload" >Click here to download..</a>
+    </div>
+</div>
+</div>
+
+<div id="editInfo" class="editInfo" hidden style="position: absolute; top:150px; right:5%; background-image: linear-gradient(#999999,#999999,#999999, transparent); padding: 75px;">
+    <h2 id="editWindowHeading"></h2>
+    <div class="row">
+        <div class="form-group">
+            <label id="labelOne" for="inputOne">New Column Name</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="inputOne">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label id="labelTwo" for="inputTwo">Operator</label>
+        </div>
+        <div id="operatorSelector" class="form-group">
+            <select id='operatorSelect'>
+                <option value="default" disabled selected hidden>Select Operator..</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label>Columns Involved</label>
+        </div>
+        <div class="form-group">
+            <div id="columns">
+                <div class="form-group">
+                    <input id="col1" class="inputColumnBox" type="text">
+                </div>
+            </div>
+            <button id="addColumn" type="button" class="glyphicon glyphicon-plus"></button>
+            <button id="removeColumn" type="button" class="glyphicon glyphicon-minus"></button>
+        </div>
+    </div>
+    <div class="row" id="attr1Div" hidden>
+        <div class="form-group">
+            <label id="attr1EditLabel" for="attr1EditTB">Attribute #1</label>
+        </div>
+        <div id="notReplace" class="form-group" hidden>
+            <input type="text" id="attr1EditTB"/>
+        </div>
+        <div id="replace" class="form-group" hidden>
+            <div class="replaceInputBoxes"></div>
+            <div id="replace1" class="replaceInputBoxes">
+                <div class="form-group">
+                    <input class="oldValue" type="text" onfocus="focusTextBox(this)"/>
+                    <label>Old Value</label>
+                </div>
+                <div class="form-group">
+                    <input class="newValue" type="text" onfocus="focusTextBox(this)"/>
+                    <label>New Value</label>
+                </div>
+            </div>
+        </div>
+        <button id="addColumnReplace" type="button" class="glyphicon glyphicon-plus"></button>
+        <button id="removeColumnReplace" type="button" class="glyphicon glyphicon-minus"></button>
+    </div>
+    <div class="row"  id="attr2Div" hidden>
+        <div class="form-group">
+            <label id="attr2EditLabel" for="attr2EditTB">Attribute #2</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="attr2EditTB"/>
+        </div>
+    </div>
+    <div id="selectAlertBanner" class="alert alert-danger" role="alert" hidden></div>
+    <div class="row"  id="attr3Div">
+        <button id="saveChanges" type="button" class="glyphicon">OK</button>
+        <button id="revertChanges" type="button" class="glyphicon">Cancel</button>
+    </div>
+</div>
+</div>
+
+<script>
+    // TODO: change this to 0
+    let nextRowNumber = 0;  // The next row number for the table. Used to create a unique ID.
+    let currentRow = "";    // Determines what row was clicked and therefore what information to show.
+    let maxInputCols = 0;   // Limits how many column input colums can be created. Changes for each operator type.
+    let currentCols = 0;    // Tracks how many input columns are currently shown. Also used to ID those columns.
+    let currentValues = ["", "", "", "", ""]    // Temporarily stores the information for each row. Passes that on to populate the table.
+    let newValue = true;    // True if a new row is being created. False if a row is being modified.
+    let previousRowColour = ""; // Stores the row colour of the row that was clicked. Used to restore the colour when the row is unclicked.
+    let currentTextbox = "";    // Reassigns the current textbox every time a textbox is clicked. Used when textboxes are being removed.
+    let currentListOfOperators = ["split", "concat", "copy", "replace"];    // List of operators. Used to populate the <select> tag in the editing window.
+    let errorText = "";     // When an input error is made, error text is assigned to this variable and is then displayed in a bootstrap alert box.
+    let currentColsReplaceNumber = 1;   // Keeps track of how many pairs of replace values there are/have been. Only used as part of the replace operator. Used for IDs.
+    let totalReplaceColumns = 1;        // The current number of replace pairs. 
+    $(document).ready(function () {
+        let listOfOperatorsHTML = "";
+        for (i = 1; i <= currentListOfOperators.length; i++) {
+            listOfOperatorsHTML += "<option value=" + currentListOfOperators[i-1] + ">" + currentListOfOperators[i-1] + "</option>";
+        }
+        $("#operatorSelector option:last").after(listOfOperatorsHTML);
+    })
+    // Add new row to the table.
+    $("#addRow").on("click",function () {
+        $("#editInfo").css("display", "block");
+        $("#editWindowHeading").text("New Row");
+        newValue = true;
+    })
+    
+    // Remove currently selected row from the table.
+    $("#removeRow").on("click",function () {
+        $("#" + currentRow).remove();
+        $("#editInfo").css("display", "none");
+        currentRow = null;
+        clearInputs();
+    });
+    // When a row in the table is clicked, show the editing window nad popuulate the fields according to what row was clicked.
+    $('#jsonTable').on("click", "tr", (function (event) {
+        // if the same row is pressed twice in a row
+        if (currentRow == $(this).attr('id')) {
+            $("#" + currentRow).css("background-color", previousRowColour);
+            currentRow = "";
+            $("#editInfo").css("display", "none");
+            clearInputs();
+        } else {
+            newValue = false;
+            currentRow = $(this).attr('id');
+            previousRowColour = $("#" + currentRow).css("background-color");
+            $("#editWindowHeading").text("Editing Row");
+            $("#" + currentRow).css("background-color", "#adecff")
+            $("#editInfo").css("display", "block");
+            $("#labelOne")[0].innerHTML = $("#newColumnName")[0].innerHTML
+            $("#inputOne").val($("#" + currentRow).children().eq(0).text())
+            let val = $("#" + currentRow).children().eq(1).text();
+            $("#operatorSelect").val(val).change();
+            populateColumnTextboxes($("#" + currentRow).children().eq(2)[0].innerHTML);
+            if ($("#operatorSelect").val() == "replace") {
+                populateReplaceTextBoxes($("#" + currentRow).children().eq(3)[0].innerHTML);
+            } else {
+                $("#attr1EditTB").val($("#" + currentRow).children().eq(3).text())
+            }
+            $("#attr2EditTB").val($("#" + currentRow).children().eq(4).text())
+        }
+    }));
+    // Populates the input columns textboxes based on the table row that was clicked.
+    function populateColumnTextboxes(htmlText) {
+        let numberOfColumns = htmlText.split("<br>");
+        let firstBoxID = $(".inputColumnBox")[0].id
+        if (numberOfColumns.length == 1) {
+            $("#" + firstBoxID).val(htmlText)
+        } else {
+            $("#" + firstBoxID).val(numberOfColumns[0])
+            for (let boxes = 1; boxes < numberOfColumns.length; boxes++) {
+                let inputTag = '<div class="form-group">';
+                inputTag += '<input id="col' + currentCols + '" class="inputColumnBox" type="text" onfocus="focusTextBox(this)">';
+                inputTag += '</div>';
+                $("#columns").append(inputTag);
+                $("#col" + currentCols).val(numberOfColumns[boxes])
+                currentCols++;
+            }
+        }
+    }
+    // Populates the replace value textboxes based on the table row that was clicked. Will only be uused as part of the replace operator.
+    function populateReplaceTextBoxes(htmlText) {
+        let pairValues = htmlText.split("<br>");
+        let currentPairValues = "";
+        let currentBoxId = "";
+        currentBoxId = $(".replaceInputBoxes")[0].id
+        currentPairValues = pairValues[0].split(" \u2192 ")
+        $("#" + currentBoxId + " input")[0].value = currentPairValues[0];
+        $("#" + currentBoxId + " input")[1].value = currentPairValues[1];
+        if (pairValues.length > 1) {
+            for (let pairs = 1; pairs < pairValues.length; pairs++) {
+                currentPairValues = pairValues[pairs].split(" \u2192 ")
+                
+                $("#replace").append('<div id="replace' + currentColsReplaceNumber + '" class="replaceInputBoxes">' +
+                    '<div class="form-group"><hr>' +
+                    '<input class="oldValue" type="text" onfocus="focusTextBox(this)"/>' +
+                    '<label>Old Value</label>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<input class="newValue" type="text" onfocus="focusTextBox(this)"/>' +
+                    '<label>New Value</label>' +
+                    '</div>' +
+                    '</div>');
+                $("#replace" + currentColsReplaceNumber + " input")[0].value = currentPairValues[0];
+                $("#replace" + currentColsReplaceNumber + " input")[1].value = currentPairValues[1];
+                currentColsReplaceNumber++;
+            }
+        }
+    }
+    // Saves the edit window changes back into the table
+    $("#saveChanges").on("click",function () {
+        if (missingInput()) {
+            $("#selectAlertBanner").text(errorText);
+            $("#selectAlertBanner").css("display", "block");
+        } else {
+            let name = $("#inputOne").val();
+            let operator = $("#operatorSelector option:selected").text();
+            // if adding a row
+            if (newValue) {
+                // get values
+                currentValues[0] = name;
+                currentValues[1] = operator;
+                currentValues[2] = getColumns();
+                if (currentValues[1] == 'replace') {
+                    currentValues[3] = getReplaceTableData();
+                } else {
+                    currentValues[3] = $("#attr1EditTB").val();
+                }
+                currentValues[4] = $("#attr2EditTB").val();
+                // set values in json table
+                let newHTML = '<tr id="' + nextRowNumber + '">';
+                for (i = 0; i < currentValues.length; i++) {
+                    newHTML += "<td>" + currentValues[i] + "</td>";
+                }
+                newHTML += "</tr>";
+                $("#jsonTable tr:last").after(newHTML);
+                nextRowNumber++;
+            } else {
+                // if modifying a row
+                $("#" + currentRow).children().eq(0).text(name)
+                $("#" + currentRow).children().eq(1).text(operator)
+                $("#" + currentRow).children().eq(2).text($("#inputThree").val())
+                if (operator == 'replace') {
+                } else {
+                    $("#" + currentRow).children().eq(3).text($("#attr1EditTB").val())
+                }
+                $("#" + currentRow).children().eq(4).text($("#attr2EditTB").val())
+                $("#" + currentRow).css("background-color", previousRowColour)
+            }
+            $("#editInfo").css("display", "none");
+            $("#selectAlertBanner").css("display", "none");
+            clearInputs();
+        }
+    });
+    // Creates the data required for the table from the edit window. The data needs to formatted correctly to be put into the table properly.
+    function getReplaceTableData() {
+        let tableData = "";
+        let oldValues = document.getElementsByClassName("oldValue");
+        let newValues = document.getElementsByClassName("newValue")
+        let numberOfNewValues = oldValues.length;
+        for (let box = 0; box < numberOfNewValues; box++) {
+            tableData += oldValues[box].value + ' \u2192 ' + newValues[box].value;
+            if (box + 1 < numberOfNewValues) {
+                tableData += '<br>';
+            }
+        }
+        return tableData;
+    }
+    // Validates the input in the edit window.
+    function missingInput() {
+        let missingInput = false;
+        if ($("#inputOne").val() == "") {
+            missingInput = true;
+            errorText = "Column Name Missing";
+        } else if ($("#operatorSelector option:selected").text() == "Select Operator..") {
+            missingInput = true;
+            errorText = "Invalid Operator Selected";
+        }
+        if ($("#operatorSelector option:selected").text() == "split") {
+            if (isNaN($("#attr1EditTB").val()) || $("#attr1EditTB").val() == "") {
+                missingInput = true
+                errorText = "Index must be a valid integer!";
+            }
+        }
+        return missingInput;
+    }
+    // Hides the editing window and dont save the data that was input.
+    $("#revertChanges").on("click",function () {
+        $("#editInfo").css("display", "none");
+        $("#" + currentRow).css("background-color", previousRowColour)
+        clearInputs();
+    });
+    // Adds a new input columns textbox in the editing window.
+    $("#addColumn").on("click",function () {
+        if (currentCols + 1 < maxInputCols) {
+            let inputTag = '<div class="form-group">';
+            inputTag += '<input id="col' + currentCols + 'class="inputColumnBox" type="text" onfocus="focusTextBox(this)"/>';
+            inputTag += '</div>';
+            $("#columns").append(inputTag);
+            currentCols++;
+        }
+    });
+    // Removes an input column textbox from the editing window.
+    $("#removeColumn").on("click",function () {
+        // get currently selected text box and remove
+        if (currentTextbox != "") {
+            currentTextbox.remove();
+            currentCols--;
+        }
+    });
+    // Adds a new replace values pair of textboxes in the editing window.
+    $("#addColumnReplace").on("click",function () {
+        let newDiv = getReplaceHTMl();
+        $("#replace").append(newDiv);
+        currentColsReplaceNumber++;
+        totalReplaceColumns++;
+    });
+    // Removes a pair of replace textboxes from the editing window.
+    $("#removeColumnReplace").on("click",function () {
+        // get currently selected text box and remove
+        if (totalReplaceColumns - 1 > 0) {
+            $("#" + currentTextbox.id).remove();
+            totalReplaceColumns--;
+        }
+    });
+    
+    // When a row is clicked containing a replace operator, extra pairs of textboxes may need to be added to the editing window. This just returns those textboxes.
+    function getReplaceHTMl() {
+        return '<div id="replace' + currentColsReplaceNumber + '" class="replaceInputBoxes">' +
+        '<div class="form-group"><hr>' +
+        '<input class="oldValue" type="text" onfocus="focusTextBox(this)"/>' +
+        '<label>Old Value</label>' +
+        '</div>' +
+        '<div class="form-group">' +
+        '<input class="newValue" type="text" onfocus="focusTextBox(this)"/>' +
+        '<label>New Value</label>' +
+        '</div>' +
+        '</div>';
+    }
+    
+    // Assigns the currently focused/selected textboxes
+    function focusTextBox(textbox) {
+        currentTextbox = textbox;
+    }
+    // Creates the JSON using all the data in the table. Once JSON is created, a success banner and download link to the JSON file is added to the screen.
+    $("#jsonButton").on("click",function () {
+        let tableObject = document.getElementById("jsonTable");
+        let tableRows = tableObject.tBodies[0].rows;
+        let outputJSONArray = "[";
+        // for each row
+        for (let i = 1; i < tableRows.length; i++) {
+            outputJSONArray += '{"output_name" : "' + tableRows[i].children[0].innerHTML + '",';
+            outputJSONArray += '"input_columns" : ['; 
+            // get all input columns
+            let inputColumns = tableRows[i].children[2].innerHTML.split("<br>");
+            
+            // loop over each input column
+            for (n = 0; n < inputColumns.length; n++) {
+                outputJSONArray += '"' + inputColumns[n] + '"';
+                if (n + 1 < inputColumns.length) {
+                    outputJSONArray += ',';
+                }
+            }
+            outputJSONArray += '],';
+            outputJSONArray += '"operation": {';
+            // get the operator for the current row
+            let type = tableRows[i].children[1].innerHTML;
+            outputJSONArray += '"type": "' + type + '"';
+            switch (type) {
+                case "concat":
+                outputJSONArray += ', "separator": "' + tableRows[i].children[3].innerHTML + '"';
+                break;
+                case "split":
+                outputJSONArray += ', "index": ' + tableRows[i].children[3].innerHTML
+                outputJSONArray += ', "delimeter": "' + tableRows[i].children[4].innerHTML + '"';
+                break;
+                case "copy":
+                    // doesnt require any extra json
+                    break;
+                    case "replace":
+                    outputJSONArray += ', ' + createReplaceJSON(tableRows[i]);
+                    break;
+                }
+                outputJSONArray += '}}'
+                if (i + 1 < tableRows.length) {
+                    outputJSONArray += ','
+                }
+            }
+            let json = '{"output" : ' + outputJSONArray + ']}';
+            saveJSON(json);
+        });
+    // Resets and clears the editing window.
+    function clearInputs() {
+        $("#inputOne").val("")
+        $("#operatorSelect").val("default");
+        $("#columns input").remove();
+        $("#columns").append('<div class="form-group"><input id="cols0" class="inputColumnBox" type="text" onfocus="focusTextBox(this)"/></div>');
+        $("#attr1EditTB").val("")
+        $("#attr2EditTB").val("")
+        $("#replace div").remove();
+        $("#replace").append('<div id="replace0" class="replaceInputBoxes">' +
+            '<div class="form-group"><hr>' +
+            '<input class="oldValue" type="text" onfocus="focusTextBox(this)"/>' +
+            '<label>Old Value</label>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input class="newValue" type="text" onfocus="focusTextBox(this)"/>' +
+            '<label>New Value</label>' +
+            '</div>' +
+            '</div>');
+        $("#attr1Div").css("display", "none");
+        $("#attr2Div").css("display", "none");
+        currentCols = 1
+        currentColsReplaceNumber = 1;
+        totalReplaceColumns = 1;
+    }
+    // Saves the JSON to a file in the user's Downloads folder.
+    function saveJSON(json) {
+        
+        // create file from JSON text
+        let blob = new Blob([json], { type: 'text/json' }),
+        anchor = document.getElementById('jsonDownload');
+        // when the link is clicked, the JSON file is downloaded to the default downloads location on the user's browser
+        anchor.download = "transformation.json";
+        anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
+        anchor.dataset.downloadurl = ['text/json', anchor.download, anchor.href].join(':');
+        
+        $("#jsonSuccessAlert").css("display", "block");
+    }
+    // Creates the JSON from the table rows that contain the replace operator.
+    function createReplaceJSON(currentRow) {
+        let returnJSON = '"replace_value": [';
+        let keyValuePairs = currentRow.children[3].innerHTML.split("<br>");
+        for (let index = 0; index < keyValuePairs.length; index++) {
+            let splitArray = keyValuePairs[index].split(" \u2192 ");
+            returnJSON += '{ "original": "' + splitArray[0] + '"';
+            returnJSON += ', "new": "' + splitArray[1] + '"}';
+            if (index + 1 < keyValuePairs.length) {
+                returnJSON += ',';
+            }
+        }
+        returnJSON += ']';
+        console.log(returnJSON)
+        return returnJSON;
+    }
+    // Changes what is shown in the editing window depending on what operator is selected.
+    $("#operatorSelector").change(function () {
+        let currentCase = $("#operatorSelector").find(":selected").text();
+        switch (currentCase) {
+            case "split":
+            maxInputCols = 1;
+                // name extra attr 1 "index" and show it
+                // name extra attr 2 "delimeter" and show it
+                $("#attr1EditLabel").text("Index");
+                $("#attr1Div").css("display", "block");
+                $("#notReplace").css("display", "block");
+                $("#replace").css("display", "none");
+                $("#attr2Div").css("display", "block");
+                $("#attr2EditLabel").text("Delimeter");
+                break;
+                case "copy":
+                maxInputCols = 1;
+                $("#attr1Div").css("display", "none");
+                $("#attr2Div").css("display", "none");
+                break;
+                case "concat":
+                maxInputCols = 100;
+                // name extra attr 1 "seporator" and show it
+                $("#attr1EditLabel").text("Separator");
+                $("#attr1Div").css("display", "block");
+                $("#notReplace").css("display", "block");
+                $("#replace").css("display", "none");
+                $("#attr2Div").css("display", "none");
+                break;
+                case "replace":
+                maxInputCols = 1;
+                // name extra attr 1 "replace values" and show it
+                // this will also need two textboxes for each value in the array (use the same method as adding input columns)
+                $("#attr1EditLabel").text("Replace Values");
+                $("#attr1Div").css("display", "block");
+                $("#notReplace").css("display", "none");
+                $("#replace").css("display", "block");
+                $("#attr2Div").css("display", "none");
+                break;
+            }
+        });
+    // Gets the input column names from the table.
+    function getColumns() {
+        let allColumns = $("#columns input");
+        let allColumnsHTML = "";
+        for (let i = 0; i < allColumns.length; i++) {
+            allColumnsHTML += allColumns.eq(i).val();
+            
+            if (i + 1 < allColumns.length) {
+                allColumnsHTML += "</br>"
+            }
+        }
+        return allColumnsHTML;
+    }
+</script>

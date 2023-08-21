@@ -1,0 +1,35 @@
+<div class="instruction">
+<h1> Model Transformation Engine and Web-Based Visualisation in Ruby </h1>
+<h2> Project Abstract </h2>
+<p> In partnership with the University of South Australia the project team has developed a solution that the Oil and Gas industry has needed for a long time. This project stems from the disorganised state of standardization of text data formats in spreadsheet data specifically. To aid in the standardization of these data formats, a full stack web application was created to give users access to a transformation engine.</p>
+<p>The engine allows them to customise how their data is output into a standardized format based on a user configurable web interface that builds a JSON file for input to the engine that can also be shared. Languages and frameworks such as Ruby, Ruby on Rails, jQuery through JavaScript, and Postgres were utilised to build the transformation engine and subsequent web application. The transformation engine allows for spreadsheet columns to be split, concatenated, replaced, and copied. The system has been designed for ease of use and extension by future developers.</p>
+
+<h2>Setup</h2>
+
+<p>// TODO</p>
+
+<h2>Instruction Manual</h2>
+
+<div>
+	When you first open the web application, you will see the welcome screen. To begin using the app, click ‘Start’.</div>
+<li>
+	You will be prompted to log in. If you don’t have an account, you can create one by selecting ‘Sign Up’. You can log in with the following basic admin credentials for an example user: Email -> admin@example.com, Password -> admin123. Once credentials have been entered, select ‘Log In’. If all goes well, you will now be able to freely use the app.
+</li>
+<li>
+	Before you can actually transform a file, a transformation file must be created. To begin, select the hamburger menu and click ‘Create Transform File’.
+</li>
+<li>
+	This is the view that is used to create the transform file. The page consists of a table that you will populate in the coming steps. To begin creating your table, select the + button above the table.
+	To add a new row to the table, you will need to complete the fields in the blue window that appears. You will need to select an operator that you would like to use for each row in the table. Depending on which operator is used, different textboxes will appear as different operators require different attributes.
+</li>
+<li>
+	Once you have completed all the fields, select the button highlighted with the arrow. After you have finished creating the transform file (ideally covering each column in the input file), click the ‘Create Transformation File’ button. This will create a JSON file that brings together all the contents of the table that you just created. A banner will appear with a download link to that JSON file.
+</li>
+<li>
+	To continue with the transformation, select the ‘Transform’ link in the navigation bar. You will be taken to the main transformation page. To begin, give your transformation a name. Next, select an input file that you wish to transform (there is an example file in the repository) and a transformation file (the JSON file you just downloaded). Select the ‘Begin Transformation’ button and download the file when finished.
+</li>
+<p></p>
+<p>
+There are other pages within the web application that you may find useful such as History, All Users and My Account but be aware that not all these features are available to all users. Administrators will have read and write access to everything while other lower level users will have limited access to functionality.</p>
+
+</div>

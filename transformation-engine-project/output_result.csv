@@ -1,0 +1,7 @@
+le_id,title,last_name,given_name,dob,address_type,street,city,state,postcode,country
+1234567890:1,Dr,Selway,Matt,31/01/2018,Billing_Address,10 At Home Cr,Adelaide,SA,5000,Australia
+1234567890:2,Dr,Selway,Matt,31/01/2018,Mailing_Address,1-100 University Blvd,Mawson Lakes,SA,5095,Australia
+2345678901:3,Dr,Grossmann,Georg,31/01/2018,Mailing_Address,1-100 University Blvd,Mawson Lakes,SA,5095,Australia
+3456789012:4,Professor,Stumptner,Markus,31/01/2018,Mailing_Address,1-100 University Blvd,Mawson Lakes,SA,5095,Australia
+5678901234:5,Mr,Bloggs,Joe,31/01/2018,Mailing_Address,PO BOX 1500,Edinburgh,SA,5111,Australia
+6789012345:6,Mr,Doe,Jane,31/01/2018,Billing_Address,PO BOX 1500,Edinburgh,SA,5111,Australia

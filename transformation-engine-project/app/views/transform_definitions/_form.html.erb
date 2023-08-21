@@ -1,0 +1,32 @@
+<%= form_with(model: transform_definition, local: true) do |form| %>
+  <% if transform_definition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transform_definition.errors.count, "error") %> prohibited this transform_definition from being saved:</h2>
+
+      <ul>
+        <% transform_definition.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transformation_id %>
+    <%= form.text_field :transformation_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

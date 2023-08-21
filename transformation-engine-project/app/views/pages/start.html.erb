@@ -1,0 +1,142 @@
+
+<div class="start">
+    <div style="padding-bottom: 5%; padding-left: 15%; padding-right: 15%; padding-top: 3%;">
+        <div class="upload-file">
+            <%= form_tag '/pages/upload', multipart: true do %>
+            <!-- TRANSFORMATION NAME INPUT -->
+            <div class="row" style="padding-bottom: 2%">
+                <div class="col-md-3">
+                    <label for="transformationName">Name of Transformation:</label>
+
+                    <input type="text" id="transformationName" name='transformationName' autofocus="true" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="transformationDescription">Description:</label>
+                    <input type="text" id="transformationDescription" name='transformationDescription' autofocus="true" required>
+                </div>
+            </div>
+
+
+
+            <!-- CSV File INPUT -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Data
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="showFilePickerData"> Upload CSV File:</label>
+                                    <input accept="text/csv" name="csv" type="file" data-enpassusermodified="yes" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JSON File INPUT -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Data
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="showFilePickerData"> Upload JSON File:</label>
+                                    <input accept="text/json" name="json" type="file" data-enpassusermodified="yes" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="progress" style="background:#169cc4; height:20px; width:0px; margin:6px;">
+                <span id="percentage"></span>
+            </div>
+            <!-- OLD BUTTONS
+            <div class="row">
+                <div class="col-md-6">
+                    
+                    <button id="beginTransform" type="button" class="btn btn-primary btn-lg">Begin Transformation</button>
+
+                    <div class=" alert alert-success" role="alert" style="display: none" id="successMessage">
+                        Transformation Successful
+                    </div>
+                    <button id="newTransform" type="button" class="btn btn-default" style="display: none">New Transformation</button>
+                
+                </div>
+            </div>
+        -->
+        <div class="row" id="file" style="padding-bottom: 2%">
+            <div class="col-md-2">
+                <input type="submit" name="commit" value="Transform" class="btn btn-primary btn-lg"/>
+            </div>
+            <div class="col-md-2">
+                <input id="newTransform" class="btn btn-default btn-lg" type="reset" value="Reset"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            <p><%= link_to 'View transformation history', transformations_path, class: "btn btn-default btn-md" %></p>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<!-- ANIMATION FOR TRANSFORM PROGRESS
+<script>
+
+    /*
+    $("#beginTransform").click(function() {
+        $("input").attr("disabled", true);
+        $("select").attr("disabled", true);
+        $(this).attr("disabled", true);
+        document.getElementById("beginTransform").innerText = "Sending data to engine..";
+        $( "#progress" ).animate({
+            width: "20%"
+        }, 1000, function() {
+            document.getElementById("beginTransform").innerText = "Reading transformation file..";
+            $( "#progress" ).animate({
+                width: "40%"
+            }, 1000, function() {
+                document.getElementById("beginTransform").innerText = "Transforming data..";
+                $( "#progress" ).animate({
+                    width: "80%"
+                }, 1000, function() {
+                    document.getElementById("beginTransform").innerText = "Sending data back to user..";
+                    $( "#progress" ).animate({
+                        width: "100%"
+                    }, 1000, function() {
+                        $("#beginTransform").hide();
+                        document.getElementById("newTransform").style.display = "block";
+                        document.getElementById("successMessage").style.display = "block";
+                        document.getElementById("file").style.display = "block";
+                    });
+                });
+            });
+        });
+    });
+    $("#newTransform").click(function() {
+        // are you sure?
+        // if yes {..
+            document.getElementById("progress").style.width = "0%";
+            document.getElementById("progress").innerHTML = "";
+            document.getElementById("beginTransform").style.display = "block";
+            document.getElementById("newTransform").style.display = "none";
+            document.getElementById("file").style.display = "none";
+            document.getElementById("successMessage").style.display = "none";
+            $("input").attr("disabled", false);
+            $("select").attr("disabled", false);
+            $("#beginTransform").attr("disabled", false);
+            document.getElementById("beginTransform").innerText = "Begin Transformation";
+        })
+        */
+
+</script>
+-->

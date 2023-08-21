@@ -1,0 +1,63 @@
+
+<div class ="users">
+
+<% if current_user && current_user.admin %>
+
+<h1>All users</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Role</th>
+			<th>Login count</th>
+			<th>Transformation count</th>
+			<th>Created at</th>
+			<th>Current login</th>
+			<th>Last login</th>
+			<th>Current Ip</th>
+			<th>Last Ip</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @users = User.all %>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.email %></td>
+			<td><%= user.first_name %></td>
+			<td><%= user.last_name %></td>
+			<% if user.admin %>
+			<td>Admin</td>
+			<% else %>
+			<td>User</td>
+			<% end %>
+			<td><%= user.sign_in_count %></td>
+			<td><%= user.transformations.size %></td>
+			<td><%= user.created_at %></td>
+			<td><%= user.current_sign_in_at %></td>
+			<td><%= user.last_sign_in_at %></td>
+			<td><%= user.current_sign_in_ip %></td>
+			<td><%= user.last_sign_in_ip %></td>
+			<% unless user == current_user || user.admin %>
+				<td><%= link_to "Delete", admin_destroy_user_path(user), method: :delete, data: { confirm: "Are you sure to delete this user?" }, class: "btn btn-primary btn-md" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<% else %>
+
+<h1>You are not able to access this page.</h1>
+
+<% end %>
+
+<p><%= link_to 'Back', home_path, class: "btn btn-default btn-md" %></p>
+
+</div>

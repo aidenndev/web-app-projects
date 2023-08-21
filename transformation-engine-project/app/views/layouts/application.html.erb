@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+  <title>Transform Engine</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Francois+One&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="../Testing/makeTransformFileTests.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+
+<body>
+  <div class="nav-container">
+
+    <div class="nav-unit" variant="top-sub" state="active">
+      <nav class="bar-main">
+        <div id="logo">
+          <img class="logo" src="<%= asset_path('logo.png') %>"/>     
+        </div>
+        <h1>Transformation Engine</h1>
+      </nav>
+      
+      <nav class="bar-secondary">
+        <div class="back-button" onclick="history.back()"> 
+          <div class="back-line1"></div>
+          <div class="back-line2"></div>
+        </div>
+        <div>
+          <ul class="menu" variant="horizontal">
+            <li class="<% if current_page?(home_path) %> active <% else %> inactive <% end %>"><%= link_to 'Home', home_path %></li>
+            <li class="<% if current_page?(start_path) %> active <% else %> inactive <% end %>"><%= link_to 'Transform', start_path %></li>
+            <li class="<% if current_page?(instruction_path) %> active <% else %> inactive <% end %>"><%= link_to 'Instruction', instruction_path %></li>
+          </ul>
+        </div>
+        <div>
+          <div class="side-button">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <div class="side-menu">
+            <li><%= link_to 'Home', home_path %></li>
+            <% unless current_user %>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to 'Start', start_path %></li>
+              <li><%= link_to 'Create Transfrom File', create_path %></li>
+              <li><%= link_to 'Instruction', instruction_path %></li>
+              <li><%= link_to 'My account', current_user %></li>
+              <li><%= link_to 'History', transformations_path %></li>
+              <% if current_user.admin %>
+                <li><%= link_to 'All users', users_path %></li>
+              <% end %>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <%= render 'layouts/alerts' %>
+  <%= yield %>
+  <%= javascript_pack_tag 'animation' %>
+</body>
+</html>

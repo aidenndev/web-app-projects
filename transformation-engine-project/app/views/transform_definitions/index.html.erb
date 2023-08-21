@@ -1,0 +1,33 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Transform Definitions</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Transformation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transform_definitions.each do |transform_definition| %>
+      <tr>
+        <td><%= transform_definition.name %></td>
+        <td><%= transform_definition.description %></td>
+        <td><%= transform_definition.transformation_id %></td>
+        <td><%= link_to 'Show', transform_definition %></td>
+        <td><%= link_to 'Edit', edit_transform_definition_path(transform_definition) %></td>
+        <td><%= link_to 'Destroy', transform_definition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transform Definition', new_transform_definition_path %>

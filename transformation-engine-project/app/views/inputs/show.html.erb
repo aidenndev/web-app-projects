@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Input name:</strong>
+  <%= @input.input_name %>
+</p>
+
+<p>
+  <strong>Input type:</strong>
+  <%= @input.input_type %>
+</p>
+
+<p>
+  <strong>Transformation:</strong>
+  <%= @input.transformation %>
+</p>
+
+<%= link_to 'Edit', edit_input_path(@input) %> |
+<%= link_to 'Back', inputs_path %>

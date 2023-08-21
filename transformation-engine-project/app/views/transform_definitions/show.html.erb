@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @transform_definition.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @transform_definition.description %>
+</p>
+
+<p>
+  <strong>Transformation:</strong>
+  <%= @transform_definition.transformation_id %>
+</p>
+
+<%= link_to 'Edit', edit_transform_definition_path(@transform_definition) %> |
+<%= link_to 'Back', transform_definitions_path %>

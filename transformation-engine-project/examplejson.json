@@ -1,0 +1,125 @@
+{
+    "output": [
+        {
+            "output_name": "le_id",
+            "input_columns": [
+                "person-id",
+                "id"
+            ],
+            "operation": {
+                "type": "concat",
+                "separator": ":"
+            }
+        },
+        {
+            "output_name": "title",
+            "input_columns": [
+                "title"
+            ],
+            "operation": {
+                "type": "copy"
+            }
+        },
+        {
+            "output_name": "last_name",
+            "input_columns": [
+                "name"
+            ],
+            "operation": {
+                "type": "split",
+                "index": 0,
+                "delimeter": ", "
+            }
+        },
+        {
+            "output_name": "given_name",
+            "input_columns": [
+                "name"
+            ],
+            "operation": {
+                "type": "split",
+                "index": 1,
+                "delimeter": ", "
+            }
+        },
+        {
+            "output_name": "dob",
+            "input_columns": [
+                "date-of-birth"
+            ],
+            "operation": {
+                "type": "copy"
+            }
+        },
+        {
+            "output_name": "address_type",
+            "input_columns": [
+                "kind"
+            ],
+            "operation": {
+                "type": "replace",
+                "replace_values": [ 
+                    { 
+                        "original": "mailing",
+                        "new": "Mailing_Address"
+                    },
+                    {
+                        "original": "billing",
+                        "new": "Billing_Address"
+                    }
+                ]
+            }
+        },
+        {
+            "output_name": "street",
+            "input_columns": [
+                "number",
+                "street"
+            ],
+            "operation": {
+                "type": "concat",
+                "rule": "$1 $2",
+                "separator": " "
+            }
+        },
+        {
+            "output_name": "city",
+            "input_columns": [
+                "city"
+            ],
+            "operation": {
+                "type": "copy"
+            }
+        },
+        {
+            "output_name": "state",
+            "input_columns": [
+                "state"
+            ],
+            "operation": {
+                "type": "copy",
+                "output_column": "state"
+            }
+        },
+        {
+            "output_name": "postcode",
+            "input_columns": [
+                "postcode"   
+            ],
+            "operation": {
+                "type": "copy",
+                "output_column": "postcode"
+            }
+        },
+        {
+            "output_name": "country",
+            "input_columns": [
+                "country"
+            ],
+            "operation": {
+                "type": "copy"
+            }
+        }
+
+    ]
+}
