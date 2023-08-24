@@ -25,3 +25,21 @@
     display: block;
     margin-top: 0.8rem auto 0;
 }
+
+/* ==================== MEDIA (Medium Devices - Tablets) ==================== */
+@media screen and (max-width: 1024px) {
+    .container.testimonials_container {
+        width: 60%;
+    }
+}
+
+/* ==================== MEDIA (Small Devices - Phones) ==================== */
+@media screen and (max-width: 600px) {
+    .container.testimonials_container {
+        width: var(--container-width-sm);
+    }
+
+    .client_review {
+        width: var(--container-width-sm);
+    }
+}
