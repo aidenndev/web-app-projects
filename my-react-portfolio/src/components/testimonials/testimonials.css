@@ -12,7 +12,7 @@
 }
 
 .testimonial {
-    background: var(--color-primary-variant);
+    background: var(--color-primary-less-transparant);
     text-align: center;
     padding: 2rem;
     border-radius: 2rem;
@@ -36,7 +36,7 @@
 /* ==================== MEDIA (Small Devices - Phones) ==================== */
 @media screen and (max-width: 600px) {
     .container.testimonials_container {
-        width: var(--container-width-sm);
+        width: 70%;
     }
 
     .client_review {

@@ -5,14 +5,15 @@ import CLIENTPIC2 from "../../assets/avatar2.jpeg"
 import CLIENTPIC3 from "../../assets/avatar3.jpeg"
 import CLIENTPIC4 from "../../assets/avatar4.jpeg"
 
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
+
+// import required modules
+import { EffectCards } from 'swiper/modules';
 
 const data = [
   {
@@ -45,11 +46,9 @@ const Testimonials = () => {
 
       <Swiper className="container testimonials_container"
       // install Swiper modules
-      modules={[Pagination]}
-      spaceBetween={40}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}>
+      effect={'cards'}
+      grabCursor={true}
+      modules={[EffectCards]}>
       {
           data.map(({photo, name, review}, index) => {
             return(
