@@ -1,0 +1,68 @@
+.nav {
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    top: 3rem;
+    gap: 2rem;
+    left: 50%;
+    transition: var(--transition);
+}
+
+.nav-about {
+    transform: translateX(-1.5rem);
+}
+
+.nav-skills {
+    transform: translateX(-6rem);
+}
+
+.nav-projects {
+    transform: translateX(-11rem);
+}
+
+.nav-contact {
+    transform: translateX(-15rem);
+}
+
+a {
+    width: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-title {
+    font-size: 0.8rem;
+    color: white;
+    cursor: default;
+}
+
+.nav-link {
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .nav-about, .nav-skills, .nav-contact, .nav-projects {
+        transform: translateX(0);
+    }
+    
+    .nav {
+        top:calc(100vh - 8rem);
+        transform: translateX(-50%);
+    }
+    
+    .nav-link {
+        width: 2rem;
+    }
+
+    .nav-link img {
+        width: 2rem;
+    }
+}
