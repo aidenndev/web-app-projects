@@ -35,10 +35,9 @@
     cursor: pointer;
 }
 
-.item.active {
+.item.active, .item.active:hover {
     background: linear-gradient(90deg, var(--transparent), var(--blue) 70%);
     border-radius: var(--radius-right);
-    position: relative;
     cursor: default;
 }
 
@@ -47,6 +46,13 @@
 .sub-container-3.active-subheading h3 {
     border-radius: var(--radius-left);
     background: linear-gradient(90deg, var(--purple), var(--transparent) 70%);
+    padding: 1rem 3rem;
+}
+
+.sub-container-1:not(.active-subheading) h3,
+.sub-container-2:not(.active-subheading) h3,
+.sub-container-3:not(.active-subheading) h3 {
+    opacity: 0.7;
 }
 
 .p-container {
