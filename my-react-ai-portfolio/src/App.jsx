@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./components/nav/Nav.js";
-import About from "./components/about/About.js";
-import Skills from "./components/skills/Skills.js";
-import Projects from "./components/projects/Project.js";
-import Contact from "./components/contact/Contact.js";
+import Nav from "./components/nav/Nav.jsx";
+import About from "./components/about/About.jsx";
+import Skills from "./components/skills/Skills.jsx";
+import Projects from "./components/projects/Project.jsx";
+import Contact from "./components/contact/Contact.jsx";
 import "./styles/app.css";
-import Background from "./components/background/Background.js";
+import Background from "./components/background/Background.jsx";
+import Stats from "./components/stats/Stats.jsx"
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Stats />
     </Router>
   );
 };
