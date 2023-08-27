@@ -16,6 +16,16 @@ body {
     --transition: all 400ms ease;
 }
 
+button, 
+.class-sub-container a, 
+.project-item, 
+.skill-item, 
+.item:not(.active),
+.sub-container-2:not(.active-subheading),
+.sub-container-3:not(.active-subheading) {
+    transition: var(--transition);
+}
+
 button:hover, 
 .class-sub-container a:hover, 
 .project-item:hover, 
