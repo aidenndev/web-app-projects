@@ -1,5 +1,5 @@
 .menu {
-    width: 19rem;
+    width: 20rem;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 .item.active .title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 .sub-container {
@@ -35,7 +35,8 @@
     cursor: pointer;
 }
 
-.item.active, .item.active:hover {
+.item.active,
+.item.active:hover {
     background: linear-gradient(90deg, var(--transparent), var(--blue) 70%);
     border-radius: var(--radius-right);
     cursor: default;
@@ -53,6 +54,7 @@
 .sub-container-2:not(.active-subheading) h3,
 .sub-container-3:not(.active-subheading) h3 {
     opacity: 0.7;
+    margin: 0;
 }
 
 .p-container {
@@ -77,12 +79,55 @@
     height: 3rem;
 }
 
-.sub-container-1 h3, .sub-container-2, .sub-container-3 {
+.sub-container-1 h3,
+.sub-container-2,
+.sub-container-3 {
     position: relative;
     margin: 0.2rem 0;
     padding: 0.5rem 0 0.5rem 1rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1440px) {
+    .sub-container {
+        width: 15rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sub-container {
+        width: 20rem;
+        top: 20%;
+        right: 10vw;
+        cursor: pointer;
+    }
+
+    .item.active .title {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .sub-container {
+        width: 16rem;
+        top: 22%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .icon-title-container,
+    .icon {
+        display: none;
+    }
+
+    .sub-container h1 {
+        font-size: 2rem;
+    }
+
+    h2,
+    h3,
+    p {
+        font-size: 0.5rem;
+    }
 
 }

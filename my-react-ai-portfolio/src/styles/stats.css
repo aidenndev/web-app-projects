@@ -47,8 +47,6 @@ h2 {
 
 @media (max-width: 1024px) {
     #stats {
-        margin-left: 50%;
-        transform: translateX(-50%);
         width: 8rem;
         top: 2rem;
     }
@@ -59,5 +57,20 @@ h2 {
 
     h2, h3, p {
         font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #stats {
+        width: 8rem;
+        top: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    h2, h3, p {
+        font-size: 0.7rem;
     }
 }

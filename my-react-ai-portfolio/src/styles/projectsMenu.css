@@ -119,7 +119,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .project-menu {
         width: 24rem;
         top: 15%;
@@ -135,8 +135,8 @@
         font-size: 0.8rem;
     }
     
-    .title {
-        font-size: 0.5rem;
+    .project-item:not(activeProject) .title {
+        font-size: 0.6rem;
     }
 
     .project-sub-container {

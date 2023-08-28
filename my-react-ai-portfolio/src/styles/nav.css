@@ -6,6 +6,7 @@
     gap: 2rem;
     left: 50%;
     transition: var(--transition);
+    z-index: 0;
 }
 
 .nav-about {
@@ -69,5 +70,16 @@ a {
 
     .nav-link img {
         width: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .nav-link {
+        width: 1rem;
+    }
+
+    .nav-link img {
+        width: 1.5rem;
     }
 }
