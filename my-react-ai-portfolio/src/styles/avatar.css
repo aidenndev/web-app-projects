@@ -62,15 +62,15 @@
 
 @media (max-width: 700px) {
     .avatar.about {
-        height: 60vh;
-        bottom: -10vh;
+        height: 50vh;
+        bottom: 0;
         transform: translateX(-58%);
     }
 
     .avatar.skills {
-        height: 60vh;
-        transform: translateX(-40%) scaleX(-1);
-        bottom: -12vh;
+        height: 65vh;
+        transform: translateX(-45%) scaleX(-1);
+        bottom: -15vh;
     }
 
     .shadow-overlay-skills, .shadow-overlay-about {
