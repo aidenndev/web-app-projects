@@ -1,5 +1,6 @@
 {
   "name": "my-react-ai-portfolio",
+  "homepage": "http://aidenndev.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

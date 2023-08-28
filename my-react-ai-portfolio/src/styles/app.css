@@ -27,6 +27,15 @@ p {
     --transition: all 400ms ease;
 }
 
+::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5vh;
+}
+
 button, 
 .class-sub-container a, 
 .project-item, 

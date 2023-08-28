@@ -31,8 +31,12 @@
     display: flex;
     flex-direction: column;
     top: 32%;
-    right: 10vw;
+    right: 11vw;
     cursor: pointer;
+}
+
+.sub-container p {
+    margin-left: 2rem;
 }
 
 .item.active,
@@ -60,11 +64,18 @@
 .p-container {
     display: none;
     transition: var(--transition);
+    max-height: 20vh;
+}
+
+.p-container::-webkit-scrollbar {
+
 }
 
 .active-subheading .p-container {
+    margin-top: 0.5rem;
     display: block;
     font-size: 1rem;
+    overflow: auto;
 }
 
 .icon-title-container {
@@ -89,7 +100,7 @@
 
 @media (max-width: 1440px) {
     .sub-container {
-        width: 15rem;
+        width: 20rem;
     }
 }
 
@@ -110,9 +121,9 @@
 @media (max-width: 700px) {
     .sub-container {
         width: 16rem;
-        top: 22%;
+        top: 25%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-55%);
     }
 
     .icon-title-container,
