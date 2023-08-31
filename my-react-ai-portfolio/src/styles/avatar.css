@@ -33,7 +33,7 @@
     .avatar.about {
         height: 70vh;
         bottom: -10vh;
-        transform: translateX(-65%);
+        transform: translateX(-70%);
     }
 }
 
@@ -63,7 +63,7 @@
 @media (max-width: 700px) {
     .avatar.about {
         height: 50vh;
-        bottom: 0;
+        bottom: 5vh;
         transform: translateX(-58%);
     }
 
@@ -74,6 +74,6 @@
     }
 
     .shadow-overlay-skills, .shadow-overlay-about {
-        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 1) 70%);
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 1) 60%);
     }
 }

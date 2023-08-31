@@ -60,7 +60,7 @@ h2 {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     #stats {
         width: 8rem;
         top: 1.5rem;

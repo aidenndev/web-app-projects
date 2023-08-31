@@ -121,7 +121,7 @@
 
 @media (max-width: 700px) {
     .project-menu {
-        width: 24rem;
+        width: 20rem;
         top: 15%;
         transform: translateX(-60%);
     }
@@ -132,11 +132,11 @@
     }
 
     .project-item.activeProject .title {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     
-    .project-item:not(activeProject) .title {
-        font-size: 0.6rem;
+    .project-item:not(.activeProject) .title {
+        font-size: 0.5rem;
     }
 
     .project-sub-container {
@@ -146,6 +146,11 @@
         flex-direction: column;
         gap: 0.4rem;
     }
+
+    .project-sub-container p {
+        font-size: 0.6rem;
+    }
+
     .scrollbar-paragraph {
         height: 35%;
         padding: 0.2rem;

@@ -62,9 +62,10 @@
 }
 
 .p-container {
+    margin-top: 0.5rem;
     display: none;
     transition: var(--transition);
-    max-height: 20vh;
+    max-height: 25vh;
 }
 
 .p-container::-webkit-scrollbar {
@@ -101,6 +102,7 @@
 @media (max-width: 1440px) {
     .sub-container {
         width: 20rem;
+        top: 25%;
     }
 }
 
@@ -121,7 +123,7 @@
 @media (max-width: 700px) {
     .sub-container {
         width: 16rem;
-        top: 25%;
+        top: 17%;
         left: 50%;
         transform: translateX(-55%);
     }
@@ -139,6 +141,10 @@
     h3,
     p {
         font-size: 0.5rem;
+    }
+
+    .p-container {
+        max-height: 20vh;
     }
 
 }

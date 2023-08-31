@@ -117,8 +117,9 @@
 @media (max-width: 700px) {
     .menu {
         left: 50%;
-        transform: translateX(-40%);
-        top: 12%;
+        transform: translateX(-5%);
+        top: 3%;
+        width: 10rem;
     }
     
     .menu .item {
@@ -126,7 +127,10 @@
     }
     
     .menu .title {
-        font-size: 0.6rem;
+        font-size: 0.4rem;
+    }
+    .menu .item.active .title {
+        font-size: 0.8rem;
     }
 
     .skill-menu {
@@ -134,17 +138,17 @@
     }
 
     .skill-item {
-        height: 3rem;
+        height: 2rem;
         width: 40%;
     }
 
     .skill-title {
-        font-size: 0.7rem;
+        font-size: 0.5rem;
         padding-right: 4.5rem;
     }
 
     .skill-item.activeSkill .skill-title {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .skill-icon {

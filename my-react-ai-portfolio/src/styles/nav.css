@@ -60,7 +60,7 @@ a {
     }
     
     .nav {
-        top:calc(100vh - 8rem);
+        top: 80vh;
         transform: translateX(-50%);
     }
     
@@ -73,7 +73,7 @@ a {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 700px) {
 
     .nav-link {
         width: 1rem;
