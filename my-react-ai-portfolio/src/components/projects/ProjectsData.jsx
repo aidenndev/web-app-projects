@@ -29,8 +29,8 @@ const projects = {
                 </p>
             </>
         ),
-        github: "http://github.com",
-        demo: "http://github.com"
+        github: "https://github.com/aidenndev/web-app-projects/tree/main",
+        demo: "https://aidenndev.github.io/aiden-restaurant/"
     },
 
     3: {
