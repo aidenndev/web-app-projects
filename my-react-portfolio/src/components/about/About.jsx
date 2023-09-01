@@ -23,7 +23,7 @@ const About = () => {
             <article className='about_card'>
               <BiSolidAward className='about_icon'/>
               <h5>Experience</h5>
-              <small>1+ years experience</small>
+              <small>10+ years experience</small>
             </article>
             <article className='about_card'>
               <HiUsers className='about_icon'/>
