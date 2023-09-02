@@ -63,7 +63,7 @@
 @media (max-width: 700px) {
     .avatar.about {
         height: 50vh;
-        bottom: 5vh;
+        bottom: 0vh;
         transform: translateX(-58%);
     }
 

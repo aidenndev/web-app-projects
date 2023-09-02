@@ -68,10 +68,6 @@
     max-height: 25vh;
 }
 
-.p-container::-webkit-scrollbar {
-
-}
-
 .active-subheading .p-container {
     margin-top: 0.5rem;
     display: block;
@@ -123,7 +119,7 @@
 @media (max-width: 700px) {
     .sub-container {
         width: 16rem;
-        top: 17%;
+        top: 22%;
         left: 50%;
         transform: translateX(-55%);
     }
