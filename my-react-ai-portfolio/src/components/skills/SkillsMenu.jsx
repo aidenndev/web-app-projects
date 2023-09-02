@@ -42,7 +42,7 @@ export default class SkillsMenu extends Component {
     const { activeMenuItem } = this.state
     const menuItems = ['FRONT-END', 'BACK-END', 'SOFT SKILLS']
 
-    const currentIcon = activeMenuItem === 1 ? frontendIcon : (2 ? backendIcon : softSkillIcon)
+    const currentIcon = activeMenuItem === 1 ? frontendIcon : (activeMenuItem === 2 ? backendIcon : softSkillIcon)
 
     return (
       <div className='skill-menu'>
@@ -52,7 +52,6 @@ export default class SkillsMenu extends Component {
             className={classNames('skill-item', { activeSkill: activeMenuItem === index + 1 })}
             onClick={() => this.handleMenuItemClick(index + 1)}>
             <h2 className='skill-title'>{item}</h2>
-
           </div>
         ))}
         <img className='skill-icon' src={currentIcon} alt='current skill' />

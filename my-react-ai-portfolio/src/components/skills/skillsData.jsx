@@ -63,36 +63,32 @@ const skills = {
 
     3: [
         {
-            title: "Node JS",
+            title: "Communication",
             level: 5,
         },
         {
-            title: "ASP.NET MVC",
+            title: "Teamwork",
             level: 4,
         },
         {
-            title: "ASP.NET",
+            title: "Problem Solving",
+            level: 6,
+        },
+        {
+            title: "Time Management",
             level: 5,
         },
         {
-            title: "git",
-            level: 4,
+            title: "Adaptability",
+            level: 5,
         },
         {
-            title: "MySQL",
-            level: 3,
+            title: "Creativity",
+            level: 6,
         },
         {
-            title: "PostgreSQL",
-            level: 2,
-        },
-        {
-            title: "Ruby",
-            level: 3,
-        },
-        {
-            title: "Swift",
-            level: 4,
+            title: "Self-awareness",
+            level: 5,
         },
     ]
 }
