@@ -23,30 +23,30 @@ const Contact = () => {
   return (
     <section id='contact'>
       <h5>Get in touch</h5>
-      <h2>Contact Me</h2>
+      <h2>Thông tin liên hệ</h2>
 
       <div className='container contact_container'>
         <div className="contact_options">
           <article className='contact_option'>
             <AiOutlineMail className='contact_option-icon'/>
             <h4>Email</h4>
-            <h5>aiden.nguyen.dev@gmail.com</h5>
-            <a href="mailto:aiden.nguyen.dev@gmail.com" target='_blank'>Send a message</a>
+            <h5>nguyenngocmanhcuong1701@gmail.com</h5>
+            <a href="mailto:nguyenngocmanhcuong1701@gmail.com" target='_blank'>Send a message</a>
           </article>
 
           <article className='contact_option'>
             <AiOutlineWhatsApp className='contact_option-icon'/>
             <h4>WhatsApp</h4>
-            <h5>+61 414 003 720</h5>
+            <h5>0909 08 1701</h5>
             <a href="http://api.whatsapp.com/send?phone=+61414003720" target='_blank'>Send a message</a>
           </article>
         </div>
 
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
-          <input type="email" name="email" placeholder='Your Email' required />
-          <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
-          <button type='submit' className='btn btn-primary'>Send Message</button>
+          <input type="text" name='name' placeholder='Họ và tên' required />
+          <input type="email" name="email" placeholder='Email' required />
+          <textarea name="message" rows="7" placeholder='Tin nhắn' required></textarea>
+          <button type='submit' className='btn btn-primary'>Gửi</button>
         </form>
       </div>
     </section>

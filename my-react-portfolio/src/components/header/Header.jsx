@@ -8,9 +8,9 @@ const Header = () => {
   return (
     <header>
       <div className="container header_container">
-        <h5>Hello I am</h5>
+        <h5>Xin chào, mình là</h5>
         <h1>Jayden Nguyen</h1>
-        <h5 className='text-light'>Tour Leader</h5>
+        <h5 className='text-light'>Hướng Dẫn Viên Du Lịch - MC Sự Kiện</h5>
         <CTA />
         <HeaderSocials />
 
@@ -18,7 +18,7 @@ const Header = () => {
           <img src={Me} alt="" />
         </div>
 
-        <a href="#contact" className='scroll_down'>Scroll Down</a>
+        <a href="#contact" className='scroll_down'>Kéo xuống</a>
       </div>
 
     </header>
