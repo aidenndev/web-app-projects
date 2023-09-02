@@ -45,6 +45,10 @@ a {
     transition: var(--transition);
 }
 
+.nav-link img {
+    width: 4rem;
+}
+
 .nav-link:hover {
     opacity: 1;
 }

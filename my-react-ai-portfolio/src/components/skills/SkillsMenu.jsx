@@ -4,6 +4,7 @@ import "../../styles/skillsMenu.css"
 import skills from "./skillsData"
 import frontendIcon from "../../assets/eagle-emblem.png"
 import backendIcon from "../../assets/hawk-emblem.png"
+import softSkillIcon from "../../assets/soft-skill.png"
 
 export default class SkillsMenu extends Component {
   constructor(props) {
@@ -39,9 +40,9 @@ export default class SkillsMenu extends Component {
 
   render() {
     const { activeMenuItem } = this.state
-    const menuItems = ['FRONT-END', 'BACK-END']
+    const menuItems = ['FRONT-END', 'BACK-END', 'SOFT SKILLS']
 
-    const currentIcon = activeMenuItem === 1 ? frontendIcon : backendIcon
+    const currentIcon = activeMenuItem === 1 ? frontendIcon : (2 ? backendIcon : softSkillIcon)
 
     return (
       <div className='skill-menu'>

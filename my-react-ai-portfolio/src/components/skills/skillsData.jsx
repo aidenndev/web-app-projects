@@ -59,6 +59,41 @@ const skills = {
             title: "Swift",
             level: 4,
         },
+    ],
+
+    3: [
+        {
+            title: "Node JS",
+            level: 5,
+        },
+        {
+            title: "ASP.NET MVC",
+            level: 4,
+        },
+        {
+            title: "ASP.NET",
+            level: 5,
+        },
+        {
+            title: "git",
+            level: 4,
+        },
+        {
+            title: "MySQL",
+            level: 3,
+        },
+        {
+            title: "PostgreSQL",
+            level: 2,
+        },
+        {
+            title: "Ruby",
+            level: 3,
+        },
+        {
+            title: "Swift",
+            level: 4,
+        },
     ]
 }
 
