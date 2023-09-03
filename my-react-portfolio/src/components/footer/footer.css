@@ -1,13 +1,9 @@
 footer {
-    background: var(--color-primary);
+    background: var(--color-bg-variant);
     padding: 3rem 0;
     text-align: center;
     font-size: 0.9rem;
     margin-top: 7rem;
-}
-
-footer a {
-    color: var(--color-bg);
 }
 
 .footer_logo {
@@ -23,6 +19,7 @@ footer a {
     justify-content: center;
     gap: 2rem;
     margin: 0 auto 3rem;
+    color: var(--color-light);
 }
 
 .footer_socials {
@@ -42,7 +39,7 @@ footer a {
 }
 
 .footer_socials a:hover {
-    background: transparent;
+    background: var(--color-white);
     color: var(--color-bg);
     border-color: var(--color-bg);
 }
