@@ -1,9 +1,9 @@
 import React from 'react'
 import './testimonials.css'
-import CLIENTPIC1 from "../../assets/avatar1.jpeg"
-import CLIENTPIC2 from "../../assets/avatar2.jpeg"
-import CLIENTPIC3 from "../../assets/avatar3.jpeg"
-import CLIENTPIC4 from "../../assets/avatar4.jpeg"
+import CLIENTPIC1 from "../../assets/avatar1.JPG"
+import CLIENTPIC2 from "../../assets/avatar2.jpg"
+import CLIENTPIC3 from "../../assets/avatar3.jpg"
+import CLIENTPIC4 from "../../assets/avatar4.jpg"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -18,23 +18,23 @@ import { EffectCards } from 'swiper/modules';
 const data = [
   {
     photo: CLIENTPIC1,
-    name: 'Jayden Nguyen',
-    review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel id, animi iure porro aut, a et nisi commodi blanditiis excepturi fugiat, voluptas sequi sapiente temporibus eaque nostrum obcaecati corrupti maiores!'
+    name: 'Maya Angelou',
+    review: '"Chúng ta có thể gặp nhiều thất bại nhưng chúng ta không được bị đánh bại."'
   },
   {
     photo: CLIENTPIC2,
-    name: 'Ben Dang',
-    review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel id, animi iure porro aut, a et nisi commodi blanditiis excepturi fugiat, voluptas sequi sapiente temporibus eaque nostrum obcaecati corrupti maiores!'
+    name: 'Benjamin Franklin',
+    review: '"Thất bại trong chuẩn bị cũng có nghĩa là chuẩn bị thất bại."'
   },
   {
     photo: CLIENTPIC3,
-    name: 'Jayden Nguyen',
-    review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel id, animi iure porro aut, a et nisi commodi blanditiis excepturi fugiat, voluptas sequi sapiente temporibus eaque nostrum obcaecati corrupti maiores!'
+    name: 'Cristiano Ronaldo',
+    review: '"Nếu bạn nghĩ rằng bạn đã hoàn hảo rồi, thì bạn sẽ không bao giờ là như vậy."'
   },
   {
     photo: CLIENTPIC4,
-    name: 'Jayden Nguyen',
-    review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel id, animi iure porro aut, a et nisi commodi blanditiis excepturi fugiat, voluptas sequi sapiente temporibus eaque nostrum obcaecati corrupti maiores!'
+    name: 'Mỹ Tâm',
+    review: '""Hãy cứ đi dù nhanh hay chậm nhưng đừng bao giờ dừng lại.""'
   }
 ]
 
