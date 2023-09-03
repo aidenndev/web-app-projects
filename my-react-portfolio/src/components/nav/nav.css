@@ -11,15 +11,17 @@ nav {
     gap: 0.8rem;
     border-radius: 3rem;
     backdrop-filter: blur(15px);
+    border: thin solid var(--color-primary-more-transparent);
 }
 
 nav a {
     background: transparent;
-    padding: 0.5rem;
+    padding: 0.6rem;
     border-radius: 50%;
     display: flex;
     color: var(--color-light);
     font-size: 1rem;
+    margin: 0 0.3rem;
 
 }
 

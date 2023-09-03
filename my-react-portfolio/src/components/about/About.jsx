@@ -1,9 +1,12 @@
 import React from 'react'
 import './about.css'
 import ME from '../../assets/me-about.jpg'
-import { BiSolidAward } from 'react-icons/bi'
-import { HiUsers } from 'react-icons/hi'
+import { FaSuitcaseRolling } from 'react-icons/fa'
+import { BiSolidPlaneAlt } from 'react-icons/bi'
 import { IoLibrary } from 'react-icons/io5'
+import { BsPencilSquare } from 'react-icons/bs'
+import { TbZodiacCapricorn } from 'react-icons/tb'
+import { GiGraduateCap } from 'react-icons/gi'
 
 const About = () => {
   return (
@@ -20,20 +23,35 @@ const About = () => {
 
         <div className="about_content">
           <div className="about_cards">
+          <article className='about_card'>
+              <BsPencilSquare className='about_icon' />
+              <h5>Tên đầy đủ</h5>
+              <small>Nguyễn Ngọc Mạnh Cường</small>
+            </article>
             <article className='about_card'>
-              <BiSolidAward className='about_icon' />
+              <TbZodiacCapricorn className='about_icon' />
+              <h5>Cung Hoàng Đạo</h5>
+              <small>Ma Kết</small>
+            </article>
+            <article className='about_card'>
+              <GiGraduateCap className='about_icon' />
+              <h5>Đã tốt nghiệp</h5>
+              <small>Khóa 2010 - Trường Cao Đẳng Du Lịch Sài Gòn</small>
+            </article>
+            <article className='about_card'>
+              <FaSuitcaseRolling className='about_icon' />
               <h5>Kinh nghiệm</h5>
               <small>Từ năm 2014</small>
             </article>
             <article className='about_card'>
-              <HiUsers className='about_icon' />
+              <BiSolidPlaneAlt className='about_icon' />
               <h5>Trải nghiệm</h5>
               <small>20 Quốc gia - Châu Á, Châu Âu, Châu Úc và Châu Mỹ</small>
             </article>
             <article className='about_card'>
               <IoLibrary className='about_icon' />
-              <h5>Cung Hoàng Đạo</h5>
-              <small>Ma Kết</small>
+              <h5>Sở thích</h5>
+              <small>Du lịch, âm nhạc, thời trang, bóng đá</small>
             </article>
           </div>
 
