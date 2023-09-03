@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import AboutMenuItem from "./AboutMenuItem.jsx"
 import AboutSubheading from "./AboutSubheading"
 import subheadingData from "./subheadingData.jsx"
-import personalIcon from "../../assets/moebius-triangle.png"
-import educationIcon from "../../assets/upgrade.png"
-import carreerIcon from "../../assets/triple-corn.png"
+import personalIcon from "../../assets/face-id.png"
+import educationIcon from "../../assets/education.png"
+import carreerIcon from "../../assets/coding.png"
 
 export default class AboutMenu extends Component {
 

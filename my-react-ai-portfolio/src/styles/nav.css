@@ -59,14 +59,6 @@ a {
 }
 
 @media (max-width: 1024px) {
-    .nav-about, .nav-skills, .nav-contact, .nav-projects {
-        transform: translateX(0);
-    }
-    
-    .nav {
-        top: 80vh;
-        transform: translateX(-50%);
-    }
     
     .nav-link {
         width: 3rem;
@@ -78,6 +70,14 @@ a {
 }
 
 @media (max-width: 700px) {
+    .nav-about, .nav-skills, .nav-contact, .nav-projects {
+        transform: translateX(0);
+    }
+    
+    .nav {
+        top: 80vh;
+        transform: translateX(-50%);
+    }
 
     .nav-link {
         width: 2rem;

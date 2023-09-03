@@ -19,12 +19,12 @@
 }
 
 .skill-title {
-    font-size: 1rem;
-    padding-right: 4.5rem;
+    font-size: 0.8rem;
+    padding-right: 4rem;
 }
 
 .skill-item.activeSkill .skill-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .activeSkill {
@@ -46,7 +46,7 @@
 
 .skill-sub-container-1 h3,
 .skill-sub-container-2 h3,
-.skill-sub-container-2 h3 {
+.skill-sub-container-3 h3 {
     position: relative;
     margin: 0;
 }
@@ -110,8 +110,32 @@
 @media (max-width: 1024px) {
     .menu {
         width: 18rem;
-        top: 25%;
+        top: 25vh;
         transform: translateY(-50%);
+    }
+
+    .skill-menu {
+        top: 20vh;
+    }
+
+    .skill-item {
+        height: 3rem;
+        width: 50%;
+    }
+    
+    .skill-title {
+        font-size: 0.65rem;
+        padding-right: 4.5rem;
+    }
+    
+    .skill-item.activeSkill .skill-title {
+        font-size: 1.1rem;
+    }
+    
+    
+    .skill-icon {
+        width: 4rem;
+        height: 4rem;
     }
 
 }

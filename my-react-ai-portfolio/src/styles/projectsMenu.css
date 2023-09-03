@@ -77,6 +77,7 @@
 
 .scrollbar-paragraph {
     overflow: auto;
+    height: 25vh;
 }
 
 .link-container a {
@@ -101,7 +102,7 @@
 @media (max-width: 1024px) {
     .project-menu {
         width: 30rem;
-        top: 25%;
+        top: 20vh;
         transform: translateX(-50%);
     }
 
