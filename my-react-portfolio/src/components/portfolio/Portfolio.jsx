@@ -34,13 +34,13 @@ const Portfolio = () => {
         className="container portfolio_container"
       >
         {
-          data.map(({ id, image, title, github, demo }) => {
+          data.map(({ id, image, title, year }) => {
             return (
               <SwiperSlide className='portfolio_item'>
                 <div className='portfolio_item-img'>
                   <img src={image} alt={title} />
                 </div>
-                <h3>{title}</h3>
+                <h3>{year} - {title}</h3>
               </SwiperSlide>
             )
           })
