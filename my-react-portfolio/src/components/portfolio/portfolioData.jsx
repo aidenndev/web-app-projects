@@ -35,7 +35,7 @@ const data = [
   {
     id: 6,
     image: IMAGES.IMG6,
-    title: 'Golden Gate Brg, San Francisco, CA, United States',
+    title: 'San Francisco, United States',
     year: '2023'
   },
   {
@@ -84,7 +84,7 @@ const data = [
   {
     id: 14,
     image: IMAGES.IMG14,
-    title: 'Reflections at Keppel Bay, Singapore',
+    title: 'Keppel Bay, Singapore',
     year: '2022'
   },
   {
@@ -120,7 +120,7 @@ const data = [
   {
     id: 20,
     image: IMAGES.IMG20,
-    title: 'Mount Rushmore National Memorial, United States',
+    title: 'Mount Rushmore, United States',
     year: '2023'
   },
   {
@@ -138,7 +138,7 @@ const data = [
   {
     id: 23,
     image: IMAGES.IMG23,
-    title: 'Puffing Billy Railway, Victoria, Australia',
+    title: 'Puffing Billy, Australia',
     year: '2022'
 
   },
@@ -279,13 +279,13 @@ const data = [
   {
     id: 46,
     image: IMAGES.IMG46,
-    title: 'Morialta Park, South Australia, Australia',
+    title: 'Morialta Park, SA, Australia',
     year: '2022'
   },
   {
     id: 47,
     image: IMAGES.IMG47,
-    title: 'Royal Exhibition Building, Melbourne, Victoria, Australia',
+    title: 'Melbourne, Australia',
     year: '2022'
   }
 

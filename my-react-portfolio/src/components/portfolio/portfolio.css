@@ -2,32 +2,19 @@
     padding-top: 2.5rem;
 }
 
-.portfolio_container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-}
-
 .portfolio_item {
     background: var(--color-bg-variant);
     padding: 1.2rem;
     border-radius: 2rem;
     border: 1px solid transparent;
     transition: var(--transition);
-    max-width: 700px;
-    max-height: 48vh;
+    max-width: 900px;
+    max-height: 750px;
 }
 
 .portfolio_item-img {
     border-radius: 1.5rem;
     overflow: hidden;
-    max-width: 600px;
-    max-height: 40vh;
-    background-repeat: no-repeat;
-    background-size: contain;
-    text-align: center;
-    background-position: center;
-    object-fit: contain;
 }
 
 .portfolio_item h3 {
@@ -40,18 +27,41 @@
     margin-bottom: 1rem;
 }
   
+/* ==================== MEDIA (Big Devices - Tablets) ==================== */
+@media screen and (max-width: 1440px) {
+
+    .portfolio_item {
+        max-width: 700px;
+        max-height: 600px;
+    }
+    
+    .portfolio_item h3 {
+        font-size: 1rem;
+    }
+}
 
 /* ==================== MEDIA (Medium Devices - Tablets) ==================== */
 @media screen and (max-width: 1024px) {
-    .portfolio_container {
-        grid-template-columns: 1fr 1fr;
+
+    .portfolio_item {
+        max-width: 500px;
+        max-height: 450px;
+    }
+    
+    .portfolio_item h3 {
+        font-size: 1rem;
     }
 }
 
 /* ==================== MEDIA (Small Devices - Phones) ==================== */
 @media screen and (max-width: 600px) {
-    .portfolio_container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+
+    .portfolio_item {
+        max-width: 300px;
+        max-height: 270px;
+    }
+    
+    .portfolio_item h3 {
+        font-size: 0.6rem;
     }
 }
