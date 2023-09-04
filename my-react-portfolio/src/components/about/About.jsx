@@ -36,7 +36,7 @@ const About = () => {
             <article className='about_card'>
               <GiGraduateCap className='about_icon' />
               <h5>Đã tốt nghiệp</h5>
-              <small>Khóa 2010 - Trường Cao Đẳng Du Lịch Sài Gòn</small>
+              <small>Trường Cao Đẳng Du Lịch Sài Gòn</small>
             </article>
             <article className='about_card'>
               <FaSuitcaseRolling className='about_icon' />
